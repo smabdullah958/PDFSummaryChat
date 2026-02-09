@@ -47,6 +47,7 @@ let SummaryController = async (req, res) => {
       });
     }
 
+    //only 100 pages are allowed for summary
     if (err?.status === 410) {
       return res.status(400).json({
         errorMessage: err.message,

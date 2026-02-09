@@ -24,8 +24,9 @@ let upload = require("./Config/multerConfig");
 
 let AuthController = require("./Routes/AuthRoute");
 let SummaryRoute = require("./Routes/SummaryRoutes");
+let PDFChat = require("./Routes/PDFChatRoute.js");
 
 App.use("/AuthRoute", AuthController);
 App.use("/SummaryRoute", upload.single("pdf"), SummaryRoute);
-
+App.use("/PDFChat", upload.single("pdf"), PDFChat);
 App.listen(PortNo);

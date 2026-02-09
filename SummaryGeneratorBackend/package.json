@@ -11,8 +11,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@chroma-core/default-embed": "^0.1.9",
     "@google/genai": "^1.39.0",
     "bcrypt": "^6.0.0",
+    "chromadb": "^3.3.0",
     "cookie": "^1.0.2",
     "cookie-parser": "^1.4.7",
     "cookies": "^0.9.1",

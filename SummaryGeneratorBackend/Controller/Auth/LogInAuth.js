@@ -21,7 +21,7 @@ let LogInAuth = async (req, res) => {
 
     // if password match than generate token
     let token = JWT.sign(
-      { Email, Role: ExistUser.Role },
+      { Email, Role: ExistUser.Role, _id: ExistUser._id },
       process.env.SecretKey,
       { expiresIn: "1w" },
     );
