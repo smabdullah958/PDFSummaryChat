@@ -5,8 +5,9 @@ let mongoose = require("mongoose");
 let Sch = new mongoose.Schema({
   UserID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Khang",
+    ref: "user",
     required: true,
+    // index: true,
   },
   Text: {
     type: String,
