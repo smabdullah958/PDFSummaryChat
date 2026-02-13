@@ -24,5 +24,5 @@ let Sch = new mongoose.Schema({
   },
 });
 
-let Model = mongoose.model("Khang", Sch);
+let Model = mongoose.model("user", Sch);
 module.exports = Model;

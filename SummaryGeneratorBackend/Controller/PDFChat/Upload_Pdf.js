@@ -1,5 +1,5 @@
 let PDFTextExtractor = require("../../Utils/TextExtractor.js");
-let ChatDatabase = require("../../Models/ChatDatabase.js");
+let ChatDatabase = require("../../Models/PDFDatabase.js");
 let Chat = async (req, res) => {
   try {
     if (!req.file) {
@@ -24,7 +24,11 @@ let Chat = async (req, res) => {
     // store text in database
     let result = await ChatData.save();
     console.log("Chat saved successfully", result);
-    res.status(200).json({ message: "Chat saved successfully" });
+    res.status(200).json({
+      message: "Chat saved successfully",
+      ShowChat: true,
+      ChatId: result._id,
+    });
   } catch (err) {
     console.log("internal eror", err);
     //if APi is a free tier is completed than show issue

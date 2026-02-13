@@ -17,7 +17,7 @@ App.use(express.json());
 
 //create database connecton
 let mongoose = require("mongoose");
-mongoose.connect(`${process.env.Connection}/tesig`);
+mongoose.connect(`${process.env.Connection}/ChatSummary`);
 
 //for file upload
 let upload = require("./Config/multerConfig");

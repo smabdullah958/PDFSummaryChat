@@ -1,5 +1,5 @@
 let PDFTextExtractor = require("../../Utils/TextExtractor.js");
-let LLMClient = require("../../Utils/LLMClient.js");
+let LLMClient = require("../../Utils/SummaryLLMClient.js");
 let { validationResult } = require("express-validator");
 
 let SummaryController = async (req, res) => {
