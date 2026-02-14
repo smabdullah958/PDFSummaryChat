@@ -4,14 +4,20 @@ import Link from "next/link";
 import Image from "next/image";
 import LogIn from "../Buttons/LogIn";
 import LogOut from "../Buttons/LogOut";
+import { ClearError } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
+import { clearError } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { useDispatch } from "react-redux";
 
 const AdminMobileHeader = () => {
+  let dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
   let closeMenu = () => {
     setTimeout(() => {
       setShowMenu(false);
-    }, 1000);
+    }, 300);
+    dispatch(ClearError());
+    dispatch(clearError());
   };
 
   return (

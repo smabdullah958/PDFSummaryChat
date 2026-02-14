@@ -1,12 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import SummaryOptions from "./SummaryOptions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PDFLoader from "./PDFLoader";
 import DisplaySummary from "./DisplaySummary";
 import toast from "react-hot-toast";
+import {
+  clearError,
+  clearState,
+} from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
 const SummaryPDF = () => {
-  let { Loading, success, errorMessage } = useSelector(
+  let dispatch = useDispatch();
+  let { Loading, success, errorMessage, Summary } = useSelector(
     //PDFSlice is come froma  store
     (state) => state.PDFSlice,
   );
@@ -25,9 +30,16 @@ const SummaryPDF = () => {
 
   useEffect(() => {
     if (errorMessage) {
-      toast.error(errorMessage);
+      toast.error(errorMessage, { id: "summary-error" });
+      dispatch(clearError());
     }
-  }, [errorMessage]);
+  }, [errorMessage, dispatch]);
+
+  useEffect(() => {
+    return()=>{
+    dispatch(clearState()); // 🔥 reset when leaving route
+    }
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -70,7 +82,7 @@ const SummaryPDF = () => {
       {ShowOptions && PdfFile && <SummaryOptions PdfFile={PdfFile} />}
       {/* //sho loader */}
       {Loading && <PDFLoader />}
-      {success && PdfFile && <DisplaySummary />}
+      {success && PdfFile && Summary && <DisplaySummary />}
     </div>
   );
 };

@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import LogIn from "../Buttons/LogIn";
 import LogOut from "../Buttons/LogOut";
-
+import { ClearError } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
+import { clearError } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { useDispatch } from "react-redux";
 const AdminSidebar = () => {
+  let dispatch = useDispatch();
   return (
     <aside className="hidden  fixed left-0 top-0 h-screen w-64 bg-[#92c7f2] shadow-xl md:flex flex-col justify-between z-70">
       {/* ===== Logo / Title ===== */}
@@ -15,16 +19,24 @@ const AdminSidebar = () => {
       <nav className="flex flex-col gap-4 px-6 text-lg font-medium">
         <Link
           href="/UserDashboard"
+          onClick={() => {
+            dispatch(ClearError());
+            dispatch(clearError());
+          }}
           className="text-white hover:bg-white/20 rounded-lg px-4 py-2 transition"
         >
           📄 Documents
         </Link>
 
         <Link
+          onClick={() => {
+            dispatch(ClearError());
+            dispatch(clearError());
+          }}
           href="/UserDashboard/AskQuestions"
           className="text-white hover:bg-white/20 rounded-lg px-4 py-2 transition"
         >
-         ❓ Ask Questions
+          ❓ Ask Questions
         </Link>
       </nav>
 

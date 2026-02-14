@@ -1,40 +1,54 @@
 "use client";
-import ChatPDFThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
+import ChatThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
   Loading: false,
-  success: false,
-  errorMessage: "",
-  ChatID: "",
-  ShowChat: "",
+  Success: false,
+  ErrorMessage: null,
+  ChatID: null,
+  ShowChat: null,
 };
 
-let PDFSlice = createSlice({
-  name: "slice",
+let ChatSlice = createSlice({
+  name: "ChatSlice",
   initialState,
+
+  reducers: {
+    ClearError: (state) => {
+      state.ErrorMessage = null;
+    },
+    ClearState: (state) => {
+      state.Loading = false;
+      state.Success = false;
+      state.ErrorMessage = null;
+      state.ChatID = null;
+      state.ShowChat = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(ChatPDFThunck.pending, (state) => {
+      .addCase(ChatThunck.pending, (state) => {
         state.Loading = true;
-        state.success = false;
-        state.errorMessage = null;
+        state.Success = false;
+        state.ErrorMessage = null;
         state.ChatID = null;
         state.ShowChat = null;
       })
-      .addCase(ChatPDFThunck.fulfilled, (state, action) => {
+      .addCase(ChatThunck.fulfilled, (state, action) => {
         state.Loading = false;
-        state.success = true;
-        state.errorMessage = null;
+        state.Success = true;
+        state.ErrorMessage = null;
         state.ChatID = action.payload?.ChatId; //get the chat id and it si come from a backend
         state.ShowChat = action.payload?.ShowChat; //ShowChat is come rom a backedn
       })
-      .addCase(ChatPDFThunck.rejected, (state, action) => {
+      .addCase(ChatThunck.rejected, (state, action) => {
         state.Loading = false;
-        state.success = false;
-        state.errorMessage = action.payload;
+        state.Success = false;
+        state.ErrorMessage = action.payload;
       });
   },
 });
 
-export default PDFSlice.reducer;
+export const { ClearError, ClearState } = ChatSlice.actions;
+export default ChatSlice.reducer;

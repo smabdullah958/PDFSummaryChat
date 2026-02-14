@@ -1,16 +1,35 @@
 "use client";
-import Loader from "./ButtonLoader";
+import TextExtractedLoader from "./TextExtractedLoader";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import ChatPDFThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
+import ChatThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
 import ChatOption from "./ChatOption";
+import {
+  ClearError,
+  ClearState,
+} from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
 const ChatPDF = () => {
-  let [PdfFile, SetPdfFile] = useState(null);
-  let { Loading, ChatID, ShowChat, errorMessage } = useSelector(
-    (state) => state.PDFChat,
-  );
   let dispatch = useDispatch();
+
+  let [PdfFile, SetPdfFile] = useState(null);
+  let { Loading, ChatID, ShowChat, ErrorMessage } = useSelector(
+    (state) => state.ChatSlice, //ChatSlice is come froma store
+  );
+
+  useEffect(() => {
+    if (ErrorMessage) {
+      toast.error(ErrorMessage, { id: "chat-error" });
+      dispatch(ClearError());
+    }
+  }, [ErrorMessage, dispatch]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(ClearState()); // 🔥 reset when leaving route
+    };
+  }, [dispatch]);
+
   //show and hide chat
   let HandlePdfFile = (field) => {
     const selectedFile = field.target.files[0]; // 1. Grab the file directly
@@ -20,18 +39,12 @@ const ChatPDF = () => {
     const formdata = new FormData();
     formdata.append("pdf", selectedFile); // Matches your middleware body('pdf')
     // 3. Dispatch the Thunk
-    dispatch(ChatPDFThunck(formdata));
+    dispatch(ChatThunck(formdata));
   };
   //find file size
   const FileSize = (bytes) => {
     return (bytes / (1024 * 1024)).toFixed(2) + " MB";
   };
-
-  useEffect(() => {
-    if (errorMessage) {
-      toast.error(errorMessage);
-    }
-  }, [errorMessage]);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -61,7 +74,7 @@ const ChatPDF = () => {
           >
             <span className="text-sm font-semibold sm:text-lg lg:text-xl text-gray-700">
               {Loading ? (
-                <Loader />  
+                <TextExtractedLoader />
               ) : PdfFile ? (
                 "Change PDF File"
               ) : (
@@ -78,14 +91,6 @@ const ChatPDF = () => {
       </div>
       {/* show ChatOption */}
       {ShowChat && PdfFile && <ChatOption ChatID={ChatID} />}
-      <button
-        onClick={() => {
-          alert(ChatID);
-          console.log(ChatID);
-        }}
-      >
-        click
-      </button>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 let URL = process.env.NEXT_PUBLIC_BackendURL;
 console.log(URL);
-let ChatPDFThunck = createAsyncThunk(
+let ChatThunck = createAsyncThunk(
   "postForm",
   async (FormData, { rejectWithValue }) => {
     try {
@@ -19,4 +19,4 @@ let ChatPDFThunck = createAsyncThunk(
     }
   },
 );
-export default ChatPDFThunck;
+export default ChatThunck;

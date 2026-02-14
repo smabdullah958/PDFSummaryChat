@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import SummaryThunck from "@/Libraries/ReduxToolkit/AsyncThunck/SummaryThunck";
-import Loader from "@/Components/ButtonLoader";
+import Loader from "@/Components/SummaryLoader";
 const SummaryOptions = ({ PdfFile }) => {
   let dispatch = useDispatch();
   //for other opton
@@ -22,6 +22,12 @@ const SummaryOptions = ({ PdfFile }) => {
       [values.target.name]: values.target.value,
     }));
   };
+
+  // useEffect(() => {
+  //   if (errorMessage) {
+  //     toast.error(errorMessage);
+  //   }
+  // }, [errorMessage]);
 
   let handleForm = (data) => {
     data.preventDefault();

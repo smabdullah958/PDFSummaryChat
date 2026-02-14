@@ -5,13 +5,26 @@ import { createSlice } from "@reduxjs/toolkit";
 let initialState = {
   Loading: false,
   success: false,
-  errorMessage: "",
-  Summary: "",
+  errorMessage: null,
+  Summary: null,
 };
 
 let PDFSlice = createSlice({
-  name: "slice",
+  name: "SummarySlice",
   initialState,
+
+  reducers: {
+    clearError: (state) => {
+      state.errorMessage = null;
+    },
+    clearState: (state) => {
+      state.Loading = false;
+      state.success = false;
+      state.errorMessage = null;
+      state.Summary = null;
+      state.errorMessage = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(SummaryThunck.pending, (state) => {
@@ -34,4 +47,5 @@ let PDFSlice = createSlice({
   },
 });
 
+export const { clearError, clearState } = PDFSlice.actions;
 export default PDFSlice.reducer;

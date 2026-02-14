@@ -2,7 +2,6 @@
 
 import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
-
 const DisplaySummary = () => {
   //PDFSlice is come foram a store bro
   let { Summary, success } = useSelector((state) => state.PDFSlice);
