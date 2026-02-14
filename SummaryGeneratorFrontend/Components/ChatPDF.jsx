@@ -1,21 +1,26 @@
 "use client";
+import Loader from "./ButtonLoader";
 import { useState, useEffect } from "react";
-import SummaryOptions from "./SummaryOptions";
-import { useSelector } from "react-redux";
-import PDFLoader from "./PDFLoader";
-import DisplaySummary from "./DisplaySummary";
 import toast from "react-hot-toast";
-const UploadPDF = () => {
-  let { Loading, success, errorMessage } = useSelector(
-    (state) => state.PDFSlice,
-  );
-
+import { useDispatch, useSelector } from "react-redux";
+import ChatPDFThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
+import ChatOption from "./ChatOption";
+const ChatPDF = () => {
   let [PdfFile, SetPdfFile] = useState(null);
-  //show other options
-  let [ShowOptions, SetShowOptions] = useState(false);
+  let { Loading, ChatID, ShowChat, errorMessage } = useSelector(
+    (state) => state.PDFChat,
+  );
+  let dispatch = useDispatch();
+  //show and hide chat
   let HandlePdfFile = (field) => {
-    SetPdfFile(field.target.files[0]);
-    SetShowOptions(true);
+    const selectedFile = field.target.files[0]; // 1. Grab the file directly
+    if (!selectedFile) return;
+
+    SetPdfFile(selectedFile); // 2. Update pdf state
+    const formdata = new FormData();
+    formdata.append("pdf", selectedFile); // Matches your middleware body('pdf')
+    // 3. Dispatch the Thunk
+    dispatch(ChatPDFThunck(formdata));
   };
   //find file size
   const FileSize = (bytes) => {
@@ -55,7 +60,13 @@ const UploadPDF = () => {
             className="flex items-center justify-center w-full px-6 py-4 border-2 border-dashed border-blue-300 rounded-lg cursor-pointer bg-blue-300 hover:bg-blue-300 hover:border-blue-400 transition-all duration-200 h-14 sm:h-20"
           >
             <span className="text-sm font-semibold sm:text-lg lg:text-xl text-gray-700">
-              {PdfFile ? "Change PDF File" : "Choose PDF File"}
+              {Loading ? (
+                <Loader />  
+              ) : PdfFile ? (
+                "Change PDF File"
+              ) : (
+                "Choose PDF File"
+              )}
             </span>
           </label>
           {PdfFile && (
@@ -65,12 +76,18 @@ const UploadPDF = () => {
           )}
         </div>
       </div>
-      {ShowOptions && PdfFile && <SummaryOptions PdfFile={PdfFile} />}
-      {/* //sho loader */}
-      {Loading && <PDFLoader />}
-      {success && PdfFile && <DisplaySummary />}
+      {/* show ChatOption */}
+      {ShowChat && PdfFile && <ChatOption ChatID={ChatID} />}
+      <button
+        onClick={() => {
+          alert(ChatID);
+          console.log(ChatID);
+        }}
+      >
+        click
+      </button>
     </div>
   );
 };
 
-export default UploadPDF;
+export default ChatPDF;

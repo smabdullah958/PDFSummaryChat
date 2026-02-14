@@ -57,7 +57,7 @@ const AdminMobileHeader = () => {
               href="/UserDashboard/AskQuestions"
               className="text-white hover:bg-white/20 rounded-lg px-4 py-2 transition"
             >
-              Ask Questions
+              ❓ Ask Questions
             </Link>
           </nav>
         </div>

@@ -5,6 +5,7 @@ import PostFormSlice from "@/Libraries/ReduxToolkit/Slices/PostFormSlice";
 import CheckLogInSlice from "@/Libraries/ReduxToolkit/Slices/CheckLogInSlice";
 import LogOutSlice from "@/Libraries/ReduxToolkit/Slices/LogOutSlice";
 import PDFSlice from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import PDFChat from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
 export const store = configureStore({
   reducer: {
     LogInSlice,
@@ -12,5 +13,6 @@ export const store = configureStore({
     CheckLogInSlice,
     LogOutSlice,
     PDFSlice,
+    PDFChat,
   },
 });
