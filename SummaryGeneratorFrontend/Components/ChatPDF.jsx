@@ -5,10 +5,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import ChatThunck from "@/Libraries/ReduxToolkit/AsyncThunck/ChatPDFthunk";
 import ChatOption from "./ChatOption";
-import {
-  ClearError,
-  ClearState,
-} from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
+import { ClearError } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
 const ChatPDF = () => {
   let dispatch = useDispatch();
 
@@ -19,16 +16,10 @@ const ChatPDF = () => {
 
   useEffect(() => {
     if (ErrorMessage) {
-      toast.error(ErrorMessage, { id: "chat-error" });
+      toast.error(ErrorMessage);
       dispatch(ClearError());
     }
   }, [ErrorMessage, dispatch]);
-
-  useEffect(() => {
-    return () => {
-      dispatch(ClearState()); // 🔥 reset when leaving route
-    };
-  }, [dispatch]);
 
   //show and hide chat
   let HandlePdfFile = (field) => {

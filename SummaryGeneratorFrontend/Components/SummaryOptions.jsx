@@ -23,12 +23,6 @@ const SummaryOptions = ({ PdfFile }) => {
     }));
   };
 
-  // useEffect(() => {
-  //   if (errorMessage) {
-  //     toast.error(errorMessage);
-  //   }
-  // }, [errorMessage]);
-
   let handleForm = (data) => {
     data.preventDefault();
     console.log(data);

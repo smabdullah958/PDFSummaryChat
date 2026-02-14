@@ -3,8 +3,8 @@ import React from "react";
 import Link from "next/link";
 import LogIn from "../Buttons/LogIn";
 import LogOut from "../Buttons/LogOut";
-import { ClearError } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
-import { clearError } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { ClearState } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
+import { clearState } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
 import { useDispatch } from "react-redux";
 const AdminSidebar = () => {
   let dispatch = useDispatch();
@@ -20,8 +20,8 @@ const AdminSidebar = () => {
         <Link
           href="/UserDashboard"
           onClick={() => {
-            dispatch(ClearError());
-            dispatch(clearError());
+            dispatch(clearState());
+            dispatch(ClearState());
           }}
           className="text-white hover:bg-white/20 rounded-lg px-4 py-2 transition"
         >
@@ -30,8 +30,8 @@ const AdminSidebar = () => {
 
         <Link
           onClick={() => {
-            dispatch(ClearError());
-            dispatch(clearError());
+            dispatch(clearState());
+            dispatch(ClearState());
           }}
           href="/UserDashboard/AskQuestions"
           className="text-white hover:bg-white/20 rounded-lg px-4 py-2 transition"

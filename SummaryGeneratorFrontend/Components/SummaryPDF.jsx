@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PDFLoader from "./PDFLoader";
 import DisplaySummary from "./DisplaySummary";
 import toast from "react-hot-toast";
-import {
-  clearError,
-  clearState,
-} from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { clearError } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
 const SummaryPDF = () => {
   let dispatch = useDispatch();
   let { Loading, success, errorMessage, Summary } = useSelector(
@@ -30,16 +27,10 @@ const SummaryPDF = () => {
 
   useEffect(() => {
     if (errorMessage) {
-      toast.error(errorMessage, { id: "summary-error" });
+      toast.error(errorMessage);
       dispatch(clearError());
     }
   }, [errorMessage, dispatch]);
-
-  useEffect(() => {
-    return()=>{
-    dispatch(clearState()); // 🔥 reset when leaving route
-    }
-  }, [dispatch]);
 
   return (
     <div className="flex flex-col justify-center items-center">
