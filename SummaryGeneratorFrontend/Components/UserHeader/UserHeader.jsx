@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 const AdminSidebar = () => {
   let dispatch = useDispatch();
   return (
-    <aside className="hidden  fixed left-0 top-0 h-screen w-64 bg-[#92c7f2] shadow-xl md:flex flex-col justify-between z-70">
+    <aside className="hidden  fixed left-0 top-0 h-screen w-64 2xl:w-96 bg-[#92c7f2] shadow-xl lg:flex flex-col justify-between z-70">
       {/* ===== Logo / Title ===== */}
       <div className="px-6 py-6">
         <h1 className="text-2xl font-bold text-white">PDF Summary</h1>
