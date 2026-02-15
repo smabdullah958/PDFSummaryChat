@@ -1,5 +1,5 @@
 let { CloudClient } = require("chromadb");
-let PDFTextVector = require("../Utils/PDFTextVector.js");
+let PDFTextVector = require("./VectorEmbedding.js");
 require("dotenv").config();
 const client = new CloudClient({
   apiKey: process.env.CHROMA_API_KEY,
@@ -27,6 +27,7 @@ let PDFTextChromaDb = async (text, id) => {
       });
     }
     console.log("All chunks stored in ChromaDB");
+    return true;
   } catch (error) {
     console.log("eror ina chromadb", error);
     const status =
@@ -43,6 +44,7 @@ let PDFTextChromaDb = async (text, id) => {
       err.status = 500;
       throw err;
     }
+    throw error;
   }
 };
 

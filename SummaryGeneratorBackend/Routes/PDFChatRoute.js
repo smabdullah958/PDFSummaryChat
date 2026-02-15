@@ -7,4 +7,4 @@ let AskQuestion = require("../Controller/PDFChat/AskQuestion.js");
 PDFChatRoute.post("/", AuthMiddleware, Upload_Pdf);
 PDFChatRoute.post("/ask", AuthMiddleware, AskQuestion);
 
-module.exports = PDFChatRoute; 
+module.exports = PDFChatRoute;
