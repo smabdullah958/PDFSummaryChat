@@ -10,7 +10,7 @@ const ChatPDF = () => {
   let dispatch = useDispatch();
 
   let [PdfFile, SetPdfFile] = useState(null);
-  let { Loading, ChatID, ShowChat, ErrorMessage } = useSelector(
+  let { Loading,  ShowChat, ErrorMessage } = useSelector(
     (state) => state.ChatSlice, //ChatSlice is come froma store
   );
 
@@ -81,7 +81,7 @@ const ChatPDF = () => {
         </div>
       </div>
       {/* show ChatOption */}
-      {ShowChat && PdfFile && <ChatOption ChatID={ChatID} />}
+      {ShowChat && PdfFile && <ChatOption  />}
     </div>
   );
 };
