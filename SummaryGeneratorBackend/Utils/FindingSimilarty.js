@@ -24,7 +24,7 @@ let FindingSimilarty = async (PDFID, Question) => {
       const relevantChunks = vectorSimilarty.documents[0];
       const distances = vectorSimilarty.distances?.[0] || [];
 
-      console.log(`📄 Found ${relevantChunks.length} relevant chunks`);
+      console.log(` Found ${relevantChunks.length} relevant chunks`);
 
       return {
         chunks: relevantChunks,

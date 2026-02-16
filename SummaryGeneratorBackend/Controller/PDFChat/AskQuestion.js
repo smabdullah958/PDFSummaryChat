@@ -32,14 +32,14 @@ let AskQuestion = async (req, res) => {
     const context = result.chunks.join("\n\n");
 
     //  Generate proper answer using LLM
-    console.log("🤖 Generating answer...");
-    const answer = await LLMAnswere(Question, context);
+    console.log(" Generating answer...");
+    const answere = await LLMAnswere(Question, context);
 
-    console.log("✅ Sending response");
+    console.log("✅ Sending response", answere);
 
     res.status(200).json({
       message: "Answer generated successfully",
-      answer,
+      answere,
     });
   } catch (error) {
     console.log("error in a ask question", error);

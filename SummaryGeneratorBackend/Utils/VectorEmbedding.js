@@ -32,7 +32,7 @@ let PDFTextVector = async (data) => {
     }
   }
 
-  // ✅ All keys failed, throw error
+  //  All keys failed, throw error
   console.log(" All API keys exhausted:", lastError);
 
   const status =
