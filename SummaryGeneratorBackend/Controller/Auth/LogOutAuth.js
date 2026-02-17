@@ -11,7 +11,7 @@ let LogOut = async (req, res) => {
     res.status(200).json({ message: "LogOut successfully" });
   } catch (error) {
     console.log("internal error ");
-    res.status(500).json({ message: "internal error" });
+    res.status(500).json({ message: "plz try again later" });
   }
 };
 module.exports = LogOut;

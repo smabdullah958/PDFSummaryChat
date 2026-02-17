@@ -5,6 +5,7 @@ let URL = process.env.FrontendURL;
 const cookieParser = require("cookie-parser");
 let express = require("express");
 let App = express();
+App.set("trust proxy", 1);
 let cors = require("cors");
 App.use(cookieParser());
 App.use(

@@ -38,7 +38,7 @@ let LogInAuth = async (req, res) => {
       .json({ message: "User is Login", Role: ExistUser.Role });
   } catch (error) {
     console.log("internal error", error);
-    res.status(500).json({ message: "internal error", error });
+    res.status(500).json({ message: "plz try again letter" });
   }
 };
 module.exports = LogInAuth;
