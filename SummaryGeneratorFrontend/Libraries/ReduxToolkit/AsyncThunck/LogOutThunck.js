@@ -1,4 +1,3 @@
-
 "use client";
 const { createAsyncThunk } = require("@reduxjs/toolkit");
 import axios from "axios";
@@ -22,7 +21,9 @@ let LogOutThunck = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("internal error bro", error);
-      return rejectWithValue(error.response?.data?.message);
+      return rejectWithValue(
+        error.response?.data?.message || "plz try again later",
+      );
     }
   },
 );

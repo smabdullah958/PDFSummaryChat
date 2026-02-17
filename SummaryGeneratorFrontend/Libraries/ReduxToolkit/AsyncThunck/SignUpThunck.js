@@ -15,7 +15,9 @@ let PostFormThunck = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("internal error bro ");
-      return rejectWithValue(error.response?.data?.message || "error");
+      return rejectWithValue(
+        error.response?.data?.message || "plz try again later",
+      );
     }
   },
 );
