@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 import Loader from "./SummaryLoader";
 import ReactMarkdown from "react-markdown";
