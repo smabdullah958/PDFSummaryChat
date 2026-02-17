@@ -19,9 +19,7 @@ let CheckLogIn = (req, res) => {
       .json({ message: " Login button hide", CheckLogin: true, decode });
   } catch (error) {
     console.log("internal errror bro ", error);
-    res
-      .status(500)
-      .json({ message: "internal error bro ", error, CheckLogin: false });
+    res.status(500).json({ message: "internal error bro ", CheckLogin: false });
   }
 };
 module.exports = CheckLogIn;
