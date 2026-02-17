@@ -29,7 +29,7 @@ let LogInAuth = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "None", // ✅ "Lax" works well on local project
+      sameSite: "none", // ✅ "Lax" works well on local project
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     console.log(token, ExistUser.Role);
