@@ -1,6 +1,6 @@
 require("dotenv").config();
 console.log("Port No", process.env.Port, process.env.FrontendURL);
-// let PortNo = process.env.Port;
+let PortNo = process.env.Port;
 let URL = process.env.FrontendURL;
 const cookieParser = require("cookie-parser");
 let express = require("express");
@@ -30,4 +30,4 @@ let PDFChat = require("./Routes/PDFChatRoute.js");
 App.use("/AuthRoute", AuthController);
 App.use("/SummaryRoute", upload.single("pdf"), SummaryRoute);
 App.use("/PDFChat", upload.single("pdf"), PDFChat);
-// App.listen(PortNo);
+App.listen(PortNo);
