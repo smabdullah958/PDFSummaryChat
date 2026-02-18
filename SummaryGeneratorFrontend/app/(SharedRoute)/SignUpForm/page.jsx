@@ -23,7 +23,7 @@ export default function SignUpPage() {
   let router = useRouter();
 
   //PostFormSlice is come foram a store bro
-  let { Loading, success, errorMessage } = useSelector(
+  let { Loading, success, Errormessage } = useSelector(
     (state) => state.PostFormSlice,
   );
   const {
@@ -44,7 +44,7 @@ export default function SignUpPage() {
       setTimeout(() => {
         dispatch(resetSignUpState());
         router.push("/UserDashboard");
-      }, 1000);
+      }, 500);
     }
   }, [success, router]);
 
@@ -59,7 +59,7 @@ export default function SignUpPage() {
         </h2>
 
         <div className="space-y-5">
-          <span className="text-red-300 ">{errorMessage}</span>
+          <span className="text-red-300 ">{Errormessage}</span>
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700">

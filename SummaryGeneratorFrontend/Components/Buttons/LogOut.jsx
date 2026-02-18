@@ -13,21 +13,16 @@ const LogOut = () => {
   let HandleButton = () => {
     setTimeout(() => {
       dispatch(LogOutThunck());
-    }, 700);
+    }, 300);
   };
 
   useEffect(() => {
     if (success) {
       dispatch(resetLogOut());
-      dispatch(CheckLogIn()); // ✅ refetch role after login
+      dispatch(CheckLogIn()); // refetch role after login
     }
   }, [success, dispatch]);
 
-  //  useEffect(()=>{
-  //   alert(Role)
-  //  },[Role])
-
-  // 🚀 Prevent hydration mismatch
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
