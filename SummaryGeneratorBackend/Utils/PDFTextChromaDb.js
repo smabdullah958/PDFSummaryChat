@@ -12,21 +12,19 @@ let PDFTextChromaDb = async (text, id) => {
       name: "SummaryChat",
     });
 
-    //divide the text into a chuncks
-    const chunks = text.match(/.{1,1000}/g) || [];
+    //  create smaller chuncks
+    const chunks = text.match(/.{1,500}/g) || [];
 
-    // 2. Loop through chunks and save them
-    for (let i = 0; i < chunks.length; i++) {
-      const vector = await PDFTextVector(chunks[i]); // Get embedding for ONE chunk
+    //  Generate  embeddings at once time
+    const vectors = await PDFTextVector(chunks);
 
-      await collection.add({
-        ids: [`${id}_chunk_${i}`], // Unique ID for each chunk
-        embeddings: [vector],
-        metadatas: [{ chatId: id }],
-        documents: [chunks[i]],
-      });
-    }
-    console.log("All chunks stored in ChromaDB");
+    //  store embedding at once time
+    await collection.add({
+      ids: chunks.map((_, i) => `${id}_chunk_${i}`),
+      embeddings: vectors,
+      metadatas: chunks.map(() => ({ chatId: id })),
+      documents: chunks,
+    });
     return true;
   } catch (error) {
     console.log("eror ina chromadb", error);

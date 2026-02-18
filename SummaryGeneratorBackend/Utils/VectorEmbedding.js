@@ -6,6 +6,9 @@ let apiKeys = [
   process.env.ChatSummary2,
   process.env.ChatSummary3,
   process.env.ChatSummary4,
+  process.env.ChatSummary5,
+  process.env.ChatSummary6,
+  process.env.ChatSummary7,
 ].filter(Boolean);
 
 let PDFTextVector = async (data) => {
@@ -24,7 +27,7 @@ let PDFTextVector = async (data) => {
         " Vector embedding generated successfully",
         response.embeddings[0]?.values,
       );
-      return response.embeddings[0]?.values;
+      return response.embeddings.maps((e) => e.values);
     } catch (error) {
       lastError = error;
       console.warn(` API key failed, trying next...`);
