@@ -46,7 +46,7 @@ export default function SignUpPage() {
         router.push("/UserDashboard");
       }, 500);
     }
-  }, [success, router]);
+  }, [success, router, dispatch]);
 
   return (
     <div
