@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import SummaryThunck from "@/Libraries/ReduxToolkit/AsyncThunck/SummaryThunck";
 import Loader from "@/Components/SummaryLoader";
+import toast from "react-hot-toast";
 const SummaryOptions = ({ PdfFile }) => {
   let dispatch = useDispatch();
   //for other opton
@@ -27,6 +28,12 @@ const SummaryOptions = ({ PdfFile }) => {
     data.preventDefault();
     console.log(data);
     const formdata = new FormData();
+
+    //alert for file size
+    if (PdfFile.size >= 5 * 1024 * 1024) {
+      toast.error("File size exceeds 5MB limit.");
+      return;
+    }
 
     formdata.append("pdf", PdfFile); // Matches your middleware body('pdf')
     formdata.append("Language", options.Language);

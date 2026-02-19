@@ -10,7 +10,7 @@ const ChatPDF = () => {
   let dispatch = useDispatch();
 
   let [PdfFile, SetPdfFile] = useState(null);
-  let { Loading,  ShowChat, ErrorMessage } = useSelector(
+  let { Loading, ShowChat, ErrorMessage } = useSelector(
     (state) => state.ChatSlice, //ChatSlice is come froma store
   );
 
@@ -25,8 +25,14 @@ const ChatPDF = () => {
   let HandlePdfFile = (field) => {
     const selectedFile = field.target.files[0]; // 1. Grab the file directly
     if (!selectedFile) return;
-
     SetPdfFile(selectedFile); // 2. Update pdf state
+
+    //alert for file size
+    if (selectedFile.size >= 5 * 1024 * 1024) {
+      toast.error("File size exceeds 5MB limit.");
+      return;
+    }
+
     const formdata = new FormData();
     formdata.append("pdf", selectedFile); // Matches your middleware body('pdf')
     // 3. Dispatch the Thunk
@@ -81,7 +87,7 @@ const ChatPDF = () => {
         </div>
       </div>
       {/* show ChatOption */}
-      {ShowChat && PdfFile && <ChatOption  />}
+      {ShowChat && PdfFile && <ChatOption />}
     </div>
   );
 };
