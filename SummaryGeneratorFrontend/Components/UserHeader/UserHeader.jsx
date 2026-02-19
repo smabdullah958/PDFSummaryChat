@@ -4,7 +4,7 @@ import Link from "next/link";
 import LogIn from "../Buttons/LogIn";
 import LogOut from "../Buttons/LogOut";
 import { ClearState } from "@/Libraries/ReduxToolkit/Slices/ChatPDFSlice";
-import { clearState } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { clearState } from "@/Libraries/ReduxToolkit/Slices/SummarySlice";
 import { useDispatch } from "react-redux";
 const AdminSidebar = () => {
   let dispatch = useDispatch();

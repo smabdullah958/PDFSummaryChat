@@ -9,7 +9,7 @@ let initialState = {
   Summary: null,
 };
 
-let PDFSlice = createSlice({
+let SummarySlice = createSlice({
   name: "SummarySlice",
   initialState,
 
@@ -47,5 +47,5 @@ let PDFSlice = createSlice({
   },
 });
 
-export const { clearError, clearState } = PDFSlice.actions;
-export default PDFSlice.reducer;
+export const { clearError, clearState } = SummarySlice.actions;
+export default SummarySlice.reducer;

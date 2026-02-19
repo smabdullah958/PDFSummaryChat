@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import PDFLoader from "./PDFLoader";
 import DisplaySummary from "./DisplaySummary";
 import toast from "react-hot-toast";
-import { clearError } from "@/Libraries/ReduxToolkit/Slices/PDFSlice";
+import { clearError } from "@/Libraries/ReduxToolkit/Slices/SummarySlice";
 const SummaryPDF = () => {
   let dispatch = useDispatch();
   let { Loading, success, errorMessage, Summary } = useSelector(
-    //PDFSlice is come froma  store
-    (state) => state.PDFSlice,
+    //SummarySlice is come froma  store
+    (state) => state.SummarySlice,
   );
 
   let [PdfFile, SetPdfFile] = useState(null);

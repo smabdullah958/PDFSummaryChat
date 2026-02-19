@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
 const DisplaySummary = () => {
   //PDFSlice is come foram a store bro
-  let { Summary, success } = useSelector((state) => state.PDFSlice);
+  let { Summary, success } = useSelector((state) => state.SummarySlice);
 
   // If there is an error, don't show the summary box at all
   if (!success || !Summary) return null;

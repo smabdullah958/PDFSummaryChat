@@ -10,7 +10,7 @@ let initialState = {
   Role: "",
 };
 
-let PostFormSlice = createSlice({
+let SignUpSlice = createSlice({
   name: "SignUpslice",
   initialState,
   reducers: {
@@ -45,5 +45,5 @@ let PostFormSlice = createSlice({
   },
 });
 
-export let { resetSignUpState } = PostFormSlice.actions;
-export default PostFormSlice.reducer;
+export let { resetSignUpState } = SignUpSlice.actions;
+export default SignUpSlice.reducer;

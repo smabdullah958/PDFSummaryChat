@@ -14,7 +14,7 @@ const SummaryOptions = ({ PdfFile }) => {
   });
 
   //PDFSlice is come foram a store bro
-  let { Loading } = useSelector((state) => state.PDFSlice);
+  let { Loading } = useSelector((state) => state.SummarySlice);
 
   //handle dropdown
   let HandleDropDown = (values) => {

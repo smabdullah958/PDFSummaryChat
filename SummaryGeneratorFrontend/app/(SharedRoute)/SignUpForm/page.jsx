@@ -7,7 +7,7 @@ import PostFormThunck from "@/Libraries/ReduxToolkit/AsyncThunck/SignUpThunck";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Loader from "@/Components/SummaryLoader";
-import { resetSignUpState } from "@/Libraries/ReduxToolkit/Slices/PostFormSlice";
+import { resetSignUpState } from "@/Libraries/ReduxToolkit/Slices/SignUpSlice";
 
 const schema = yup.object({
   Name: yup.string().required("Full Name is required"),
@@ -22,9 +22,9 @@ export default function SignUpPage() {
   let dispatch = useDispatch();
   let router = useRouter();
 
-  //PostFormSlice is come foram a store bro
+  //SignUpSlice is come foram a store bro
   let { Loading, success, Errormessage } = useSelector(
-    (state) => state.PostFormSlice,
+    (state) => state.SignUpSlice,
   );
   const {
     register,
