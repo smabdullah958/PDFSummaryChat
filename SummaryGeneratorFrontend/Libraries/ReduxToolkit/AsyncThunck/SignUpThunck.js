@@ -4,7 +4,7 @@ import { DisplayLogOut } from "@/Libraries/ReduxToolkit/Slices/CheckLogInSlice";
 let URL = process.env.NEXT_PUBLIC_BackendURL;
 console.log(URL);
 let PostFormThunck = createAsyncThunk(
-  "postForm",
+  "SignUpthunck",
   async (UserData, { dispatch, rejectWithValue }) => {
     try {
       let response = await axios.post(`${URL}/AuthRoute/SignUpAuth`, UserData, {
@@ -12,7 +12,7 @@ let PostFormThunck = createAsyncThunk(
       });
       console.log(response.data);
       dispatch(DisplayLogOut());
-      return response.data;
+      return response?.data;
     } catch (error) {
       console.log("internal error bro ");
       return rejectWithValue(

@@ -5,7 +5,7 @@ let URL = process.env.NEXT_PUBLIC_BackendURL;
 
 //check the user is login or not on a reload or a refetch
 let CheckLogIn = createAsyncThunk(
-  "async thunck",
+  "asyncthunck",
   async (_, { rejectWithValue }) => {
     try {
       let response = await axios.get(`${URL}/AuthRoute/checkLogIn`, {

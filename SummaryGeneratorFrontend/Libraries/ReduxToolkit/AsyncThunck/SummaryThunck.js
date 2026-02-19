@@ -3,7 +3,7 @@ import axios from "axios";
 let URL = process.env.NEXT_PUBLIC_BackendURL;
 console.log(URL);
 let SummaryThunck = createAsyncThunk(
-  "postForm",
+  "summarythunck",
   async (formdata, { rejectWithValue }) => {
     try {
       let response = await axios.post(`${URL}/SummaryRoute/`, formdata, {

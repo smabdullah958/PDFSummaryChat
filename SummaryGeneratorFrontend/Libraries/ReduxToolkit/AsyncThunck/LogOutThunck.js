@@ -6,7 +6,7 @@ import { resetLoginState } from "../Slices/LogInSlice";
 
 let URL = process.env.NEXT_PUBLIC_BackendURL;
 let LogOutThunck = createAsyncThunk(
-  "thunck",
+  "logoutthunck",
   async (_, { dispatch, rejectWithValue }) => {
     try {
       let response = await axios.post(

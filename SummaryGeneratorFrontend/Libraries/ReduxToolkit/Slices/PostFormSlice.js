@@ -11,7 +11,7 @@ let initialState = {
 };
 
 let PostFormSlice = createSlice({
-  name: "slice",
+  name: "SignUpslice",
   initialState,
   reducers: {
     resetSignUpState: (state) => {

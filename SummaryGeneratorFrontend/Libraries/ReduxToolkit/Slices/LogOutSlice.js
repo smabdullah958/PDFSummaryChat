@@ -8,7 +8,7 @@ let initialState={
     Role:""
 }
 let LogOutSlice=createSlice({
-    name:"slice",
+    name:"logoutslice",
     initialState,
     reducers:{
          resetLogOut:(state)=>{

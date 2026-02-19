@@ -30,6 +30,9 @@ const SummaryPDF = () => {
       toast.error(errorMessage);
       dispatch(clearError());
     }
+    return () => {
+      dispatch(clearError());
+    };
   }, [errorMessage, dispatch]);
 
   return (

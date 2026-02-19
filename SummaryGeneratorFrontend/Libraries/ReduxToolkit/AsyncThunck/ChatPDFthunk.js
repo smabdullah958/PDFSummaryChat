@@ -3,7 +3,7 @@ import axios from "axios";
 let URL = process.env.NEXT_PUBLIC_BackendURL;
 console.log(URL);
 let ChatThunck = createAsyncThunk(
-  "postForm",
+  "chatthunck",
   async (FormData, { rejectWithValue }) => {
     try {
       let response = await axios.post(`${URL}/PDFChat/`, FormData, {
