@@ -25,7 +25,7 @@ IMPORTANT RULES:
 
 CONTEXT FROM PDF:
 ${context}
-
+  
 QUESTION:
 ${question}
 

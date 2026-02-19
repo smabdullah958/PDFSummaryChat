@@ -1,6 +1,8 @@
 let { CloudClient } = require("chromadb");
 let PDFTextVector = require("./VectorEmbedding.js");
+let createChuncks = require("./CreateChunks.js");
 require("dotenv").config();
+
 const client = new CloudClient({
   apiKey: process.env.CHROMA_API_KEY,
   tenant: process.env.CHROMA_TENANT,
@@ -13,7 +15,7 @@ let PDFTextChromaDb = async (text, id) => {
     });
 
     //  create smaller chuncks
-    const chunks = text.match(/.{1,500}/g) || [];
+    const chunks = createChuncks(text, 700);
 
     //  Generate  embeddings at once time
     const vectors = await PDFTextVector(chunks);
