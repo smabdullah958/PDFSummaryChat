@@ -27,7 +27,7 @@ let PDFTextVector = async (data) => {
         " Vector embedding generated successfully",
         response.embeddings[0]?.values,
       );
-      return response.embeddings.maps((e) => e.values);
+      return response.embeddings.map((e) => e.values);
     } catch (error) {
       lastError = error;
       console.warn(` API key failed, trying next...`);
