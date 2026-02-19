@@ -6,6 +6,9 @@ let apiKeys = [
   process.env.ChatSummary2,
   process.env.ChatSummary3,
   process.env.ChatSummary4,
+  process.env.ChatSummary5,
+  process.env.ChatSummary6,
+  process.env.ChatSummary7,
 ].filter(Boolean);
 
 let LLMAnswer = async (question, context) => {
@@ -44,7 +47,6 @@ ANSWER:`;
       ) {
         answer = response.candidates[0].content.parts[0].text;
       }
-
       console.log("Answer generated successfully");
       return answer || "Unable to generate answer";
     } catch (error) {

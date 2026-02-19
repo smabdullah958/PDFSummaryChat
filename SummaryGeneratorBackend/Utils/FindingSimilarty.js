@@ -14,7 +14,7 @@ let FindingSimilarty = async (PDFID, Question) => {
     //create embeedding for  a question
     const vector = await VectorEmbeeding(Question);
     let vectorSimilarty = await collection.query({
-      queryEmbeddings: [vector],
+      queryEmbeddings: vector,
       nResults: 10,
       where: { chatId: PDFID }, //  Filter by ChatID only!
     });
