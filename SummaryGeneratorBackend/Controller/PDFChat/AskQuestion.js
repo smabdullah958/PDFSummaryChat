@@ -44,21 +44,21 @@ let AskQuestion = async (req, res) => {
   } catch (error) {
     console.log("error in a ask question", error);
     //if APi is a free tier is completed than show issue
-    if (err?.status === 429) {
+    if (error?.status === 429) {
       return res.status(429).json({
-        errorMessage: err.message || "plz try again after 24 hour",
+        errorMessage: error.message || "plz try again after 24 hour",
       });
     }
 
     //only 100 pages are allowed for chat
-    if (err?.status === 410) {
+    if (error?.status === 410) {
       return res.status(400).json({
-        errorMessage: err.message || "only 100 pages are allowed",
+        errorMessage: error.message || "only 100 pages are allowed",
       });
     }
 
     res.status(500).json({
-      errorMessage: err.message || "Please try  again after  some time",
+      errorMessage: error.message || "Please try  again after  some time",
     });
   }
 };

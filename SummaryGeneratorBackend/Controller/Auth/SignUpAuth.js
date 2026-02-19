@@ -59,7 +59,7 @@ let SignUpAuth = async (req, res) => {
       .json({ message: "account is created successfully", result });
   } catch (error) {
     console.log("internal error", error);
-    res.status(500).json({ message: "internal error", error });
+    res.status(500).json({ message: "plz try again", error });
   }
 };
 module.exports = SignUpAuth;
