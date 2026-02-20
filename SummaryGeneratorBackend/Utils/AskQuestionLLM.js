@@ -19,7 +19,7 @@ let LLMAnswer = async (question, context) => {
 
 IMPORTANT RULES:
 - If the answer is in the context, provide a clear and concise answer
-- If the answer is NOT in the context, say "I cannot find the answer in the provided document"
+- If the answer is NOT in the context, say "No relevant information found in the PDF"
 - Do not make up information
 - Be specific and direct
 
