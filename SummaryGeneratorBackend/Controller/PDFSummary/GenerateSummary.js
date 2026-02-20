@@ -38,19 +38,19 @@ let SummaryController = async (req, res) => {
 
     console.log("the summary of a file isa ", Summary);
     res.status(200).json({ Summary: Summary });
-  } catch (err) {
-    console.log("internal eror", err);
+  } catch (error) {
+    console.log("internal eror", error);
     //if APi is a free tier is completed than show issue
-    if (err?.status === 429) {
+    if (error?.status === 429) {
       return res.status(429).json({
         errorMessage: "AI has high load. Please try  again after 24 hour",
       });
     }
 
     //only 100 pages are allowed for summary
-    if (err?.status === 410) {
+    if (error?.status === 410) {
       return res.status(400).json({
-        errorMessage: err.message,
+        errorMessage: error.message,
       });
     }
 
