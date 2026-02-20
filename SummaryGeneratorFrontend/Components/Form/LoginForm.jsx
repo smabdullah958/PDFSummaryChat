@@ -42,11 +42,11 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (success) {
-      dispatch(HideLogIn());
       dispatch(resetLoginState());
       if (Role === "Admin" || Role === "User") {
         route.push("/UserDashboard");
       }
+      dispatch(HideLogIn());
     }
   }, [success, dispatch]);
 
