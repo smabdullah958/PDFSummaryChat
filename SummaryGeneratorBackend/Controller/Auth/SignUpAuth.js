@@ -37,12 +37,10 @@ let SignUpAuth = async (req, res) => {
       Password: hashPassword,
       Role,
     });
-    console.log("hashPassword", hashPassword);
     //create token
     const token = JWT.sign({ Email, Role, _id: result._id }, MySecretKey, {
       expiresIn: "1w",
     });
-    console.log("Token", token, "\n");
     //send token to afrontend
     res.cookie("token", token, {
       httpOnly: true,

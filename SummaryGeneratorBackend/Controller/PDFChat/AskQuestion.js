@@ -10,7 +10,7 @@ let AskQuestion = async (req, res) => {
         .status(400)
         .json({ message: "pdf is empty or question required" });
     }
-    console.log(ChatID, Question);
+    console.log(Question);
 
     let CheckPDFID = await PDFID.findOne({ _id: ChatID });
     if (!CheckPDFID) {
@@ -18,7 +18,7 @@ let AskQuestion = async (req, res) => {
     }
 
     let result = await FindingSimilarty(ChatID, Question);
-    console.log(result);
+    console.log("similarty is find ");
 
     // Check if relevant chunks were found
     if (!result.chunks || result.chunks.length === 0) {
@@ -35,7 +35,7 @@ let AskQuestion = async (req, res) => {
     console.log(" Generating answer...");
     const answere = await LLMAnswere(Question, context);
 
-    console.log("✅ Sending response", answere);
+    console.log("Sending response", answere);
 
     res.status(200).json({
       message: "Answer generated successfully",

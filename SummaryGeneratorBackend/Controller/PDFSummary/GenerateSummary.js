@@ -19,7 +19,7 @@ let SummaryController = async (req, res) => {
     }
 
     if (req.file.size > 5 * 1024 * 1024) {
-      console.log("File Size received:", req.file.size); // Debugging line
+      console.log("File Size received:"); // Debugging line
       return res.status(400).json({ errorMessage: "PDF is exceeds than 5MB" });
     }
 

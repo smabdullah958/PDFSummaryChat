@@ -10,7 +10,7 @@ let Chat = async (req, res) => {
     }
 
     if (req.file.size > 5 * 1024 * 1024) {
-      console.log("File Size received:", req.file.size); // Debugging line
+      console.log("File Size received:"); // Debugging line
       return res.status(400).json({ errorMessage: "PDF is exceeds than 5MB" });
     }
 
@@ -30,7 +30,7 @@ let Chat = async (req, res) => {
     saveTextID = result._id;
     //here we can convert the text into a vector embedding
     let Chromadb = await PDFTextChromaDb(PDFText.text, result._id.toString());
-    console.log("Chat saved successfully", result);
+    console.log("convert the text into a vector embedding");
     //only send response if the chromdb generate the embedding successfully
     if (Chromadb) {
       res.status(200).json({

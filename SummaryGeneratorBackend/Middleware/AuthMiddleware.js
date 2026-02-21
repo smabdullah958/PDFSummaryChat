@@ -10,7 +10,6 @@ let AuthMiddleware = (req, res, next) => {
         .status(400)
         .json({ message: "user is a not Login", CheckLogin: false });
     }
-    console.log(process.env.SecretKey);
     let decode = jwt.verify(token, process.env.SecretKey);
     console.log("decode successfully", decode, decode.Role);
 
@@ -24,7 +23,7 @@ let AuthMiddleware = (req, res, next) => {
     console.log("internal errror bro ", error);
     res
       .status(500)
-      .json({ message: "internal error bro ", error, CheckLogin: false });
+      .json({ message: "some thing went wrong", error, CheckLogin: false });
   }
 };
 module.exports = AuthMiddleware;
