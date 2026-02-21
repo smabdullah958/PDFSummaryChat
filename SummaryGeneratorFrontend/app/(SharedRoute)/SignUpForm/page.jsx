@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PostFormThunck from "@/Libraries/ReduxToolkit/AsyncThunck/SignUpThunck";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Loader from "@/Components/SummaryLoader";
+import Loader from "@/Components/ButtonLoader";
 import { resetSignUpState } from "@/Libraries/ReduxToolkit/Slices/SignUpSlice";
 
 const schema = yup.object({

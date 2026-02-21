@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import SummaryOptions from "./SummaryOptions";
 import { useDispatch, useSelector } from "react-redux";
-import PDFLoader from "./PDFLoader";
+import PDFLoader from "./ChatLoader";
 import DisplaySummary from "./DisplaySummary";
 import toast from "react-hot-toast";
 import { clearError } from "@/Libraries/ReduxToolkit/Slices/SummarySlice";

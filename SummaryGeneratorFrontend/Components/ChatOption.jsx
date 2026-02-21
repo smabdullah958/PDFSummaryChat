@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Loader from "./SummaryLoader";
+import Loader from "./ButtonLoader";
 import ReactMarkdown from "react-markdown";
 
 let URL = process.env.NEXT_PUBLIC_BackendURL;

@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import SummaryThunck from "@/Libraries/ReduxToolkit/AsyncThunck/SummaryThunck";
-import Loader from "@/Components/SummaryLoader";
+import Loader from "@/Components/ButtonLoader";
 import toast from "react-hot-toast";
 const SummaryOptions = ({ PdfFile }) => {
   let dispatch = useDispatch();

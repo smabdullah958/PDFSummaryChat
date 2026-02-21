@@ -1,6 +1,6 @@
 "use client";
 
-import Loader from "@/Components/SummaryLoader";
+import Loader from "@/Components/ButtonLoader";
 
 import {
   HideLogIn,
