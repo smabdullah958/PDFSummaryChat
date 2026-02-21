@@ -83,7 +83,7 @@ You are NOT allowed to translate unless explicitly told.
       return summary;
     } catch (err) {
       lastError = err;
-      console.warn(`API key failed: ${key}, trying next...`);
+      console.warn(`API key failed, trying next...`);
       continue; // try the next key
     }
   }

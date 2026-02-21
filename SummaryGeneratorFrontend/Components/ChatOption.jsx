@@ -77,7 +77,7 @@ const ChatOption = () => {
             <div
               className={`max-w-md px-5 py-3 rounded-2xl shadow-md ${
                 ans.type === "question"
-                  ? "bg-blue-600 text-white rounded-br-md"
+                  ? "bg-[#62aaf2] text-white rounded-br-md"
                   : "bg-white border rounded-bl-md"
               }`}
             >

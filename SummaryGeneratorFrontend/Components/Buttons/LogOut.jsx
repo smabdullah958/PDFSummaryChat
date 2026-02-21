@@ -37,7 +37,7 @@ const LogOut = () => {
         <button
           onClick={HandleButton}
           disabled={Loading}
-          className={`px-6 py-2 md:mr-10 rounded-xl   text-white font-semibold shadow-lg  transition-all duration-500 transform hover:scale-105 active:scale-95  ${IsLogIn ? "opacity-100 hover:from-[#0693cf] hover:to-[#0f94cd]" : "opacity-0"} ${Loading ? "opacity-0 cursor-not-allowed bg-gradient-to-r from-[#83c2dc] to-[#8dc4db]" : "bg-gradient-to-r from-[#3fb7eb] to-[#23a4dc]"}`}
+          className={`px-6 py-2 md:mr-10 rounded-xl   text-white font-semibold shadow-lg  transition-all duration-500 transform hover:scale-105 active:scale-95  ${IsLogIn ? "opacity-100 " : "opacity-50"} ${Loading ? "opacity-0 cursor-not-allowed bg-gradient-to-r from-[#83c2dc] to-[#8dc4db]" : "bg-gradient-to-r from-[#3fb7eb] to-[#23a4dc] hover:from-[#0693cf] hover:to-[#0f94cd]"}`}
         >
           {Loading ? <ButtonLoader /> : "Log Out"}
         </button>
