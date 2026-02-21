@@ -37,8 +37,8 @@ const SummaryPDF = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="my-10  border-dotted border-2 border-gray-200 sm:px-10 rounded-2xl mt-20 bg-gray-50">
-        <div className=" mt-10 2xl:mt-20 w-80 sm:w-96 xl:w-[40vw] 2xl:w-[30vw]  p-10 rounded-3xl ">
+      <div className="my-10  border-dotted border-2 border-gray-200 sm:px-10 rounded-2xl mt-16 bg-gray-50">
+        <div className=" mt-10 2xl:mt-20 w-80 sm:w-96 xl:w-[40vw] 2xl:w-[30vw]  p-5 rounded-3xl ">
           <p className="mb-4 text-gray-400 text-sm sm:text-lg lg:text-xl text-center">
             Supports PDF up to 5MB
           </p>

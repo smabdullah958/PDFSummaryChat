@@ -11,14 +11,14 @@ let LogInThunck = createAsyncThunk(
       let response = await axios.post(`${URL}/AuthRoute/LogInAuth`, Form, {
         withCredentials: true,
       });
-      console.log(response.data);
 
       await dispatch(CheckLogIn()).unwrap();
 
       return response?.data;
     } catch (error) {
-      console.log("internal erorr bro ", error);
-      return rejectWithValue(error.response?.data?.message || "plz try again later");
+      return rejectWithValue(
+        error.response?.data?.message || "plz try again later",
+      );
     }
   },
 );

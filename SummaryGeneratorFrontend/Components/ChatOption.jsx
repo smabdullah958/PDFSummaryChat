@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Loader from "./SummaryLoader";
 import ReactMarkdown from "react-markdown";
@@ -53,8 +53,8 @@ const ChatOption = () => {
   return (
     <div className="w-full max-w-5xl mx-auto h-[90vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden">
       {/* ===== Header ===== */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-5 flex items-center gap-4">
-        <div className="w-12 h-12 bg-white text-blue-600 font-bold rounded-full flex items-center justify-center shadow-md text-lg">
+      <div className="bg-[#92c7f2] px-8 py-5 flex items-center gap-4">
+        <div className="w-12 h-12 bg-white text-[#7eb6f1] font-bold rounded-full flex items-center justify-center shadow-md text-lg">
           AI
         </div>
         <div>
@@ -109,7 +109,7 @@ const ChatOption = () => {
 
           <button
             onClick={CallAPI}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium shadow-md transition"
+            className="px-6 py-3 bg-[#92c7f2] text-white rounded-full font-medium shadow-md transition"
           >
             Send
           </button>

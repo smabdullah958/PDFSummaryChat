@@ -21,7 +21,7 @@ const AdminMobileHeader = () => {
   };
 
   return (
-    <header className="lg:hidden bg-[#92c7f2] shadow-lg ">
+    <header className="md:hidden bg-[#92c7f2] shadow-lg ">
       {/* Top bar with logo + burger */}
       <div className=" px-6 flex items-center justify-between h-16">
         {/* Burger button */}

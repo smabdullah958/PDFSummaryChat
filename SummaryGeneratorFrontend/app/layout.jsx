@@ -1,6 +1,7 @@
 export const metadata = {
-  title: "Tourist App",
-  description: "created with the help of a next js",
+  title: "PDF Summary and PDF Chatting Tool",
+  description:
+    "The PDF Summary AI - Your Ultimate PDF Summarization Tool and chatting tool",
 };
 import StoreProvider from "@/app/StoreProvider";
 import "./globals.css";

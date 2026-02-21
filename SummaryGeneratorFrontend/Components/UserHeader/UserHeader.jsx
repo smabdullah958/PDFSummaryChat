@@ -9,14 +9,9 @@ import { useDispatch } from "react-redux";
 const AdminSidebar = () => {
   let dispatch = useDispatch();
   return (
-    <aside className="hidden  fixed left-0 top-0 h-screen w-64 2xl:w-96 bg-[#92c7f2] shadow-xl lg:flex flex-col justify-between z-70">
-      {/* ===== Logo / Title ===== */}
-      <div className="px-6 py-6">
-        <h1 className="text-2xl font-bold text-white">PDF Summary</h1>
-      </div>
-
+    <aside className="hidden fixed  top-0 h-20 w-full 2xl:w-96 bg-[#92c7f2] shadow-xl md:flex justify-between z-70">
       {/* ===== Navigation ===== */}
-      <nav className="flex flex-col gap-4 px-6 text-lg font-medium">
+      <nav className="flex justify-center items-center  gap-4 px-6 text-lg font-medium">
         <Link
           href="/UserDashboard"
           onClick={() => {
@@ -41,7 +36,7 @@ const AdminSidebar = () => {
       </nav>
 
       {/* ===== Auth Buttons ===== */}
-      <div className="px-6 py-6 flex flex-col gap-2">
+      <div className=" justify-center flex flex-col gap-2">
         <LogIn />
         <LogOut />
       </div>

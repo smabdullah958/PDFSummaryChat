@@ -21,7 +21,6 @@ const LogIn = () => {
 
   let handlebutton = () => {
     dispatch(DisplayLogin()); //this will display the form bro
-    // dispatch(resetLoginState()) //this will reset all the error success message
   };
 
   return (
@@ -30,7 +29,7 @@ const LogIn = () => {
         <button
           onClick={handlebutton}
           disabled={IsLogIn}
-          className={`px-6 py-2 rounded-xl bg-[#eff2f4]  text-black font-semibold shadow-lg hover:bg-gradient-to-r from-[#3fb7eb] to-[#23a4dc] hover:text-white transition-all duration-500 transform hover:scale-105 active:scale-95 ${IsLogIn ? "opacity-0" : "opacity-100"}`}
+          className={`px-6 py-2 rounded-xl bg-gradient-to-r from-[#3fb7eb] to-[#23a4dc]  text-white font-semibold shadow-lg hover:bg-gradient-to-r from-[#3fb7eb] to-[#23a4dc] hover:from-[#0693cf] hover:to-[#0f94cd]  transition-all duration-500 transform hover:scale-105 active:scale-95 ${IsLogIn ? "opacity-0" : "opacity-100"}`}
         >
           Log in
         </button>

@@ -26,7 +26,6 @@ const SummaryOptions = ({ PdfFile }) => {
 
   let handleForm = (data) => {
     data.preventDefault();
-    console.log(data);
     const formdata = new FormData();
 
     //alert for file size
@@ -85,7 +84,7 @@ const SummaryOptions = ({ PdfFile }) => {
       <button
         onClick={handleForm}
         className={` mt-10 p-4 rounded-xl   w-full font-bold 
-        ${Loading ? "opacity-30 bg-linear-to-r  from-blue-400 to-purple-400" : "opacity-100 bg-linear-to-r  from-blue-500 to-purple-500 hover:cursor-pointer  duration-300 transition"}
+        ${Loading ? "opacity-30 bg-[#7eb6f1]" : "opacity-100 bg-[#7eb6f1] hover:bg-[#8abff9]  duration-300 transition"}
         `}
       >
         {Loading ? <Loader /> : "Generate Summary"}

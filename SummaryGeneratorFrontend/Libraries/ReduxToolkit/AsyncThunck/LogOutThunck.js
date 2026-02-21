@@ -14,13 +14,11 @@ let LogOutThunck = createAsyncThunk(
         {},
         { withCredentials: true },
       );
-      console.log("logout successfully");
 
       await dispatch(CheckLogIn()).unwrap();
       dispatch(resetLoginState());
       return response.data;
     } catch (error) {
-      console.log("internal error bro", error);
       return rejectWithValue(
         error.response?.data?.message || "plz try again later",
       );

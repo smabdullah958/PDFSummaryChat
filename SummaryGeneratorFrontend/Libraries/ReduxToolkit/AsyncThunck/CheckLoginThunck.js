@@ -11,10 +11,8 @@ let CheckLogIn = createAsyncThunk(
       let response = await axios.get(`${URL}/AuthRoute/checkLogIn`, {
         withCredentials: true,
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
-      console.log("internal error brother", error);
       return rejectWithValue(
         error.response?.data?.message || { CheckLogin: false },
       );
