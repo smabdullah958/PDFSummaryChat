@@ -62,8 +62,7 @@ NEXT_PUBLIC_BackendURL=YOUR_BACKEND_URL
 ## 🚀 Setup Instructions
 
 ### 1️⃣ Clone Repository
-git clone https://github.com/smabdullah958/PDF_Summary_Generator.git  
-cd PDF_Summary_Generator  
+git clone https://github.com/smabdullah958/PDFSummaryChat.git  
 
 ---
 
